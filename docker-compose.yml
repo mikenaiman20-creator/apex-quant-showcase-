@@ -1,0 +1,75 @@
+services:
+  apex_app:
+    build: .
+    container_name: apex_app
+    command: "streamlit run app.py --server.address=0.0.0.0 --server.port=8501"
+    env_file:
+      - .env
+    environment:
+      - "LIVE_TRADING=False"
+      - "PYTHONPATH=/app"
+    ports:
+      - "100.113.253.104:8501:8501"
+    volumes:
+      - "./artifacts:/data/artifacts"
+      - "./logs:/data/logs"
+      - "./state:/data/state"
+    restart: unless-stopped
+    networks:
+      - apex-net
+      - risk-net
+
+  apex_risk_engine:
+    build: .
+    container_name: apex_risk_engine
+    command: "uvicorn risk_server:app --host 0.0.0.0 --port 8080"
+    environment:
+      - "PYTHONPATH=/app"
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+    networks:
+      - risk-net
+
+  apex_bot:
+    build: .
+    container_name: apex_bot
+    command: "python run_bot.py"
+    env_file:
+      - .env
+    environment:
+      - "LIVE_TRADING=False"
+      - "PYTHONPATH=/app"
+    ports:
+      - "127.0.0.1:8001:8001" 
+    volumes:
+      - "./artifacts:/data/artifacts"
+      - "./logs:/data/logs"
+      - "./state:/data/state"
+    restart: unless-stopped
+    depends_on:
+      - apex_risk_engine
+    networks:
+      - apex-net
+      - risk-net
+
+  apex_researcher:
+    build: .
+    container_name: apex_researcher
+    command: "python scripts/nightly_research.py"
+    environment:
+      - "PYTHONPATH=/app"
+    volumes:
+      - "./artifacts:/data/artifacts"
+      - "./logs:/data/logs"
+      - "./state:/data/state"
+    restart: unless-stopped
+    networks:
+      - apex-net
+
+networks:
+  apex-net:
+    driver: bridge
+  risk-net:
+    driver: bridge
+    internal: true
