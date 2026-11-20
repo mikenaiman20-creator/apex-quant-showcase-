@@ -1,9 +1,29 @@
+# Secrets & Environment
 .env
-__pycache__/
-*.pyc
-state/
-logs/
-artifacts/
+*.pem
+*.key
+deadman_config.env
+
+# Databases & State
 *.db
 *.sqlite
 *.sqlite3
+*.duckdb
+state/
+data/
+
+# Logs & Artifacts
+logs/
+artifacts/
+*.log
+
+# Python / Docker
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# OS Specific
+.DS_Store
+Thumbs.db

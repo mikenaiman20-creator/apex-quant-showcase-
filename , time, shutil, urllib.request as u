@@ -1,0 +1,108 @@
+[0;1;31m●[0m apex-quant-v2
+    State: [0;1;31mdegraded[0m
+     Jobs: 0 queued
+   Failed: 4 units
+    Since: Fri 2026-11-06 08:21:22 UTC; 1 weeks 6 days ago
+   CGroup: /
+           ├─[0;38;5;245m724 bpfilter_umh[0m
+           ├─docker 
+           │ ├─331162c2226136fa8b5da4fd8dd6f677b72e478b4236686f60065412664e1425 
+           │ │ └─[0;38;5;245m3002458 /usr/local/bin/python3.12 /usr/local/bin/uvicorn risk_server:app --host 0.0.0.0 --port 8080[0m
+           │ ├─66148b431dc9d2dd135ff58d27332c22f85860899d95962ce86cabbe777f19b5 
+           │ │ └─[0;38;5;245m3004649 /usr/local/bin/python3.12 /usr/local/bin/streamlit run app.py --server.address=0.0.0.0 --server.port=8501[0m
+           │ ├─b19f26b7252d3933293a52e593bed87e9b98ac6bb6ec054cb50b93f3b09133ff 
+           │ │ └─[0;38;5;245m3002604 python run_bot.py[0m
+           │ └─e08141ad6a16a68355bc3581f664699e230a3b9766e0f19b19e8f98e4efd605b 
+           │   └─[0;38;5;245m3002852 python scripts/nightly_research.py[0m
+           ├─user.slice 
+           │ └─user-1001.slice 
+           │   ├─session-820.scope 
+           │   │ ├─[0;38;5;245m3089226 sshd: ubuntu [priv][0m
+           │   │ ├─[0;38;5;245m3089310 sshd: ubuntu@pts/0[0m
+           │   │ ├─[0;38;5;245m3089311 -bash[0m
+           │   │ ├─[0;38;5;245m3091027 systemctl status[0m
+           │   │ └─[0;38;5;245m3091028 pager[0m
+           │   └─user@1001.service 
+           │     ├─init.scope 
+           │     │ ├─[0;38;5;245m3089231 /lib/systemd/systemd --user[0m
+           │     │ └─[0;38;5;245m3089232 (sd-pam)[0m
+           │     └─dbus.service 
+           │       └─[0;38;5;245m3089623 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only[0m
+           ├─init.scope 
+           │ └─[0;38;5;245m1 /sbin/init[0m
+           └─system.slice 
+             ├─irqbalance.service 
+             │ └─[0;38;5;245m881 /usr/sbin/irqbalance --foreground[0m
+             ├─systemd-networkd.service 
+             │ └─[0;38;5;245m803 /lib/systemd/systemd-networkd[0m
+             ├─systemd-udevd.service 
+             │ └─[0;38;5;245m533 /lib/systemd/systemd-udevd[0m
+             ├─cron.service 
+             │ └─[0;38;5;245m942 /usr/sbin/cron -f[0m
+             ├─system-serial\x2dgetty.slice 
+             │ └─serial-getty@ttyAMA0.service 
+             │   └─[0;38;5;245m951 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyAMA0 vt220[0m
+             ├─polkit.service 
+             │ └─[0;38;5;245m883 /usr/lib/policykit-1/polkitd --no-debug[0m
+             ├─networkd-dispatcher.service 
+             │ └─[0;38;5;245m882 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers[0m
+             ├─multipathd.service 
+             │ └─[0;38;5;245m665 /sbin/multipathd -d -s[0m
+             ├─accounts-daemon.service 
+             │ └─[0;38;5;245m867 /usr/lib/accountsservice/accounts-daemon[0m
+             ├─ModemManager.service 
+             │ └─[0;38;5;245m1013 /usr/sbin/ModemManager[0m
+             ├─systemd-journald.service 
+             │ └─[0;38;5;245m501 /lib/systemd/systemd-journald[0m
+             ├─atd.service 
+             │ └─[0;38;5;245m953 /usr/sbin/atd -f[0m
+             ├─unattended-upgrades.service 
+             │ └─[0;38;5;245m997 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal[0m
+             ├─ssh.service 
+             │ └─[0;38;5;245m1060 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups[0m
+             ├─fwupd.service 
+             │ └─[0;38;5;245m3089432 /usr/libexec/fwupd/fwupd[0m
+             ├─apex-risk-gateway-proxy.service 
+             │ └─[0;38;5;245m114243 /lib/systemd/systemd-socket-proxyd 172.20.0.2:8765[0m
+             ├─snapd.service 
+             │ └─[0;38;5;245m901 /usr/lib/snapd/snapd[0m
+             ├─snap.oracle-cloud-agent.oracle-cloud-agent.service 
+             │ ├─[0;38;5;245m 899 /snap/oracle-cloud-agent/95/agent[0m
+             │ ├─[0;38;5;245m1259 /snap/oracle-cloud-agent/current/plugins/gomon/gomon[0m
+             │ ├─[0;38;5;245m1286 /snap/oracle-cloud-agent/current/plugins/oci-wlp/oci-wlp[0m
+             │ └─[0;38;5;245m1323 /snap/oracle-cloud-agent/current/plugins/unifiedmonitoring/unifiedmonitoring[0m
+             ├─apex-autonomous-runner.service 
+             │ └─[0;38;5;245m1808436 /home/ubuntu/miniforge3/envs/apex_env/bin/python -u -m server.autonomous_runner[0m
+             ├─rsyslog.service 
+             │ └─[0;38;5;245m885 /usr/sbin/rsyslogd -n -iNONE[0m
+             ├─snap.oracle-cloud-agent.oracle-cloud-agent-updater.service 
+             │ └─[0;38;5;245m888 /snap/oracle-cloud-agent/95/updater/updater[0m
+             ├─rpcbind.service 
+             │ └─[0;38;5;245m731 /sbin/rpcbind -f -w[0m
+             ├─systemd-resolved.service 
+             │ └─[0;38;5;245m805 /lib/systemd/systemd-resolved[0m
+             ├─iscsid.service 
+             │ ├─[0;38;5;245m935 /sbin/iscsid[0m
+             │ └─[0;38;5;245m937 /sbin/iscsid[0m
+             ├─snap.docker.dockerd.service 
+             │ ├─[0;38;5;245m   3484 dockerd --group docker --exec-root=/run/snap.docker --data-root=/var/snap/docker/common/var-lib-docker --pidfile=/run/snap.docker/docker.pid --config-file=/var/snap/docker/3619/config/daemon.json[0m
+             │ ├─[0;38;5;245m   3872 /snap/docker/3619/bin/containerd --config /run/snap.docker/containerd/containerd.toml[0m
+             │ ├─[0;38;5;245m3002433 /snap/docker/3619/bin/containerd-shim-runc-v2 -namespace moby -id 331162c2226136fa8b5da4fd8dd6f677b72e478b4236686f60065412664e1425 -address /run/snap.docker/containerd/containerd.sock[0m
+             │ ├─[0;38;5;245m3002579 /snap/docker/3619/bin/containerd-shim-runc-v2 -namespace moby -id b19f26b7252d3933293a52e593bed87e9b98ac6bb6ec054cb50b93f3b09133ff -address /run/snap.docker/containerd/containerd.sock[0m
+             │ ├─[0;38;5;245m3002805 /snap/docker/3619/bin/docker-proxy -proto tcp -host-ip 127.0.0.1 -host-port 8001 -container-ip 172.24.0.2 -container-port 8001 -use-listen-fd[0m
+             │ ├─[0;38;5;245m3002829 /snap/docker/3619/bin/containerd-shim-runc-v2 -namespace moby -id e08141ad6a16a68355bc3581f664699e230a3b9766e0f19b19e8f98e4efd605b -address /run/snap.docker/containerd/containerd.sock[0m
+             │ ├─[0;38;5;245m3004624 /snap/docker/3619/bin/containerd-shim-runc-v2 -namespace moby -id 66148b431dc9d2dd135ff58d27332c22f85860899d95962ce86cabbe777f19b5 -address /run/snap.docker/containerd/containerd.sock[0m
+             │ └─[0;38;5;245m3004829 /snap/docker/3619/bin/docker-proxy -proto tcp -host-ip 100.113.253.104 -host-port 8501 -container-ip 172.24.0.4 -container-port 8501 -use-listen-fd[0m
+             ├─udisks2.service 
+             │ └─[0;38;5;245m913 /usr/lib/udisks2/udisksd[0m
+             ├─tailscaled.service 
+             │ └─[0;38;5;245m1833583 /usr/sbin/tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/run/tailscale/tailscaled.sock --port=41641[0m
+             ├─dbus.service 
+             │ └─[0;38;5;245m873 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only[0m
+             ├─systemd-timesyncd.service 
+             │ └─[0;38;5;245m732 /lib/systemd/systemd-timesyncd[0m
+             ├─system-getty.slice 
+             │ └─getty@tty1.service 
+             │   └─[0;38;5;245m976 /sbin/agetty -o -p -- \u --noclear tty1 linux[0m
+             └─systemd-logind.service 
+               └─[0;38;5;245m908 /lib/systemd/systemd-logind[0m
