@@ -1,4 +1,4 @@
- Apex Quant
+Apex Quant
  
 A paper-trading research platform, built to answer one question honestly: **does any strategy survive proper validation?**
  
